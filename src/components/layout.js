@@ -1,16 +1,12 @@
-/**
- * Layout component that queries for data
- * with Gatsby's useStaticQuery component
- *
- * See: https://www.gatsbyjs.com/docs/use-static-query/
- */
+/*
+layout file defines top nav, footer and side nav if any, for all the pages
+*/
+import * as React from "react";
+import PropTypes from "prop-types";
+import { useStaticQuery, graphql } from "gatsby";
+import "../components/styles/main.scss";
 
-import * as React from "react"
-import PropTypes from "prop-types"
-import { useStaticQuery, graphql } from "gatsby"
-
-import Header from "./header"
-import "./layout.css"
+import Header from "./header";
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -24,26 +20,22 @@ const Layout = ({ children }) => {
   `)
 
   return (
-    <>
-      <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
-      <div
-        style={{
-          margin: `0 auto`,
-          maxWidth: 960,
-          padding: `0 1.0875rem 1.45rem`,
-        }}
-      >
-        <main>{children}</main>
-        <footer
-          style={{
-            marginTop: `2rem`,
-          }}
-        >
-          © {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://www.gatsbyjs.com">Gatsby</a>
-        </footer>
-      </div>
+
+    <><Header siteTitle={data.site.siteMetadata?.title || `News`} />
+      <main>
+        <section className="m-5">
+          {children}
+        </section>
+      </main>
+
+      <footer className="text-muted py-5">
+        <div className="container">
+          <p className="float-end mb-1">
+            <a href="#">Back to top</a>
+          </p>
+          <p className="mb-1">&copy;2022 Abc News Corp!</p>
+        </div>
+      </footer>
     </>
   )
 }
@@ -52,4 +44,4 @@ Layout.propTypes = {
   children: PropTypes.node.isRequired,
 }
 
-export default Layout
+export default Layout;

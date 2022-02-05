@@ -1,7 +1,9 @@
-import * as React from "react"
-
-import Layout from "../components/layout"
-import Seo from "../components/seo"
+/*
+ this page displays when page is not found
+*/
+import * as React from "react";
+import Layout from "../components/layout";
+import Seo from "../components/seo";
 
 const NotFoundPage = () => (
   <Layout>
@@ -11,4 +13,4 @@ const NotFoundPage = () => (
   </Layout>
 )
 
-export default NotFoundPage
+export default NotFoundPage;

@@ -1,33 +1,24 @@
-import * as React from "react"
-import PropTypes from "prop-types"
-import { Link } from "gatsby"
+/*
+header (top navigation) for the website
+*/
+import * as React from "react";
+import PropTypes from "prop-types";
+import { Link } from "gatsby";
 
 const Header = ({ siteTitle }) => (
-  <header
-    style={{
-      background: `rebeccapurple`,
-      marginBottom: `1.45rem`,
-    }}
-  >
-    <div
-      style={{
-        margin: `0 auto`,
-        maxWidth: 960,
-        padding: `1.45rem 1.0875rem`,
-      }}
-    >
-      <h1 style={{ margin: 0 }}>
-        <Link
-          to="/"
-          style={{
-            color: `white`,
-            textDecoration: `none`,
-          }}
-        >
-          {siteTitle}
-        </Link>
-      </h1>
-    </div>
+  <header>
+    <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+      <div className="container-fluid">
+        <Link className="navbar-brand" to="/" state={{ locale: "en-US" }}>{siteTitle}</Link>
+        <div className="collapse navbar-collapse" id="newsHeaderNav">
+          <div className="navbar-nav">
+            <Link className="nav-link active" to="/" state={{ locale: "en-US" }}>English</Link>
+            <Link className="nav-link" to="/" state={{ locale: "fr" }}>French</Link>
+            <Link className="nav-link" to="/video">Video</Link>
+          </div>
+        </div>
+      </div>
+    </nav>
   </header>
 )
 
@@ -39,4 +30,4 @@ Header.defaultProps = {
   siteTitle: ``,
 }
 
-export default Header
+export default Header;
